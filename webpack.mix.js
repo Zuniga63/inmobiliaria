@@ -1,13 +1,13 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 mix.options({
   hmrOptions: {
-    host: 'ensy.test',
-    port: 8080
-  }
+    host: "inmobiliaria.test",
+    port: 8080,
+  },
 });
 
-mix.browserSync('ensy.test');
+mix.browserSync("inmobiliaria.test");
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -19,12 +19,11 @@ mix.browserSync('ensy.test');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue()
-  .postCss('resources/css/app.css', 'public/css', [
-    require('postcss-import'),
-    require('tailwindcss'),
-  ])
-  .webpackConfig(require('./webpack.config'));
+mix
+  .js("resources/js/app.js", "public/js")
+  .vue()
+  .postCss("resources/css/app.css", "public/css", [require("postcss-import"), require("tailwindcss")])
+  .webpackConfig(require("./webpack.config"));
 
 if (mix.inProduction()) {
   mix.version();

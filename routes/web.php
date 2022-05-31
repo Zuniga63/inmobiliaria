@@ -6,7 +6,6 @@ use App\Http\Controllers\BusinessConfigController;
 use App\Http\Controllers\CashboxController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\DailyActivityController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -181,13 +180,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
   Route::put('cancelar-factura', [InvoiceController::class, 'cancelInvoice'])->name('invoice.cancel');
   Route::get('reporte-facturacion/semanal', [InvoiceController::class, 'getWeeklyReport'])->name('invoice.weeklyReport');
   Route::get('imprimir-factura/{invoice}', [InvoiceController::class, 'printInvoice'])->name('invoice.print');
-
-  //-----------------------------------------------------------------------------
-  //-----------------------------------------------------------------------------
-  // RUTAS PARA ADMINSITRAR ACTIVIDADES DIARIAS
-  //-----------------------------------------------------------------------------
-  //-----------------------------------------------------------------------------
-  Route::get('actividades-diarias', [DailyActivityController::class, 'index'])->name('dailyActivity.index');
-  Route::post('actividades-diarias', [DailyActivityController::class, 'store'])->name('dailyActivity.store');
-  Route::delete('actividades-diarias/{dailyActivity}',  [DailyActivityController::class, 'destroy'])->name('dailyActivity.destroy');
 });

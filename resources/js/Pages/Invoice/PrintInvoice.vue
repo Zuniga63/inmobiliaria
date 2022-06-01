@@ -14,15 +14,17 @@
         <p class="text-gray-600 text-center text-xs">
           Nit: <span class="font-semibold">{{ config.nit }}</span>
         </p>
-        <p class="text-gray-600 text-center text-xs" v-if="config.address.show">{{ config.address.value }}</p>
-        <p class="text-gray-600 text-center text-xs" v-if="config.phone.show">
-          Tel: {{ formatPhone(config.phone.number) }}
-        </p>
+        <div class="flex gap-2 justify-center">
+          <p class="text-gray-600 text-center text-xs" v-if="config.address.show">{{ config.address.value }}</p>
+          <p class="text-gray-600 text-center text-xs" v-if="config.phone.show">
+            Tel: {{ formatPhone(config.phone.number) }}
+          </p>
+        </div>
         <p class="text-gray-600 text-center text-xs" v-if="config.email.show">{{ config.email.value }}</p>
       </div>
     </header>
 
-    <div class="mb-6">
+    <div class="mb-3">
       <!-- Invoice Information -->
       <div class="px-2 pb-3 mb-3 border-b-2 border-gray-800">
         <p class="text-gray-800 text-right uppercase font-bold mb-2">
@@ -43,7 +45,7 @@
             <p>Cliente</p>
             :
           </div>
-          <p class="col-span-2 text-right line-clamp-1">{{ invoice.customer_name }}</p>
+          <p class="col-span-2 text-right line-clamp-1 uppercase">{{ invoice.customer_name }}</p>
         </div>
         <!-- Customer Nit o CC -->
         <div class="grid grid-cols-3 text-xs text-gray-800 tracking-wider">
@@ -102,8 +104,8 @@
           </div>
           <!-- Amount -->
           <div class="grid grid-cols-3 gap-2 text-gray-800 font-bold tracking-wider">
-            <p class="col-span-1 text-right text-base text-gray-800">Total:</p>
-            <p class="col-span-2 text-right">{{ formatCurrency(invoice.amount) }}</p>
+            <p class="col-span-2 text-right text-base text-gray-800">Total:</p>
+            <p class="col-span-1 text-right">{{ formatCurrency(invoice.amount) }}</p>
           </div>
         </footer>
       </div>
@@ -139,14 +141,14 @@
           </div>
           <!-- Change -->
           <div
-            class="flex justify-end mt-4 text-base text-gray-800 tracking-wider font-bold"
+            class="flex justify-end mt-4 text-sm text-gray-800 tracking-wider font-bold"
             v-if="invoice.cash_change > 0"
           >
             <p class="mr-2 flex-grow text-center">Cambio:</p>
             <p>{{ formatCurrency(invoice.cash_change) }}</p>
           </div>
           <!-- Saldo -->
-          <div class="flex justify-between text-sm text-gray-800 tracking-wider font-bold" v-if="invoice.balance">
+          <div class="flex justify-between text-base text-gray-800 tracking-wider font-bold" v-if="invoice.balance">
             <p class="mr-2">Saldo:</p>
             <p>{{ formatCurrency(invoice.balance) }}</p>
           </div>
@@ -172,7 +174,7 @@
       </div>
     </div>
 
-    <footer class="mb-2 text-xs text-gray-600 text-center">
+    <footer class="text-xs text-gray-600 text-center">
       <p>Elaborada por: {{ invoice.seller_name }}</p>
       <p class="font-bold">{{ config.name }}</p>
     </footer>

@@ -1,6 +1,6 @@
 <template>
-  <div class="px-2 mb-4" v-for="n in 2" :key="n">
-    <header class="flex items-center px-2 pt-6 pb-3 mb-3 border-b-2 border-gray-800">
+  <div class="px-2" v-for="n in 2" :key="n">
+    <header class="flex items-center px-2 pt-6 pb-1 mb-1 border-b-2 border-gray-800">
       <!-- Logo -->
       <div class="w-16 flex-grow-0 mx-auto mb-4">
         <img :src="config.logo" :alt="config.name" class="block object-contain w-full h-full" />
@@ -24,9 +24,9 @@
       </div>
     </header>
 
-    <div class="mb-3">
+    <div class="mb-2">
       <!-- Invoice Information -->
-      <div class="px-2 pb-3 mb-3 border-b-2 border-gray-800">
+      <div class="px-2 pb-2 mb-2 border-b-2 border-gray-800">
         <p class="text-gray-800 text-right uppercase font-bold mb-2">
           Factura de venta N° <span class="text-red-600">{{ invoice.invoice_number }}</span>
         </p>
@@ -66,7 +66,7 @@
       </div>
 
       <!-- Items -->
-      <div class="px-2 pb-3 mb-3 border-b-2 border-gray-800">
+      <div class="px-2 pb-2 mb-2 border-b-2 border-gray-800">
         <!-- Header -->
         <header class="flex text-xs uppercase font-bold text-gray-800">
           <p class="text-center">Cant.</p>
@@ -159,7 +159,7 @@
       <div class="border-2 border-gray-600 rounded-lg overflow-hidden p-2">
         <div class="grid grid-cols-3 gap-2">
           <!-- Firma Arrendatario -->
-          <div class="h-16 text-gray-800 text-sm">Pagado por:</div>
+          <div class="h-14 text-gray-800 text-sm">Pagado por:</div>
           <!-- Firma del responsable -->
           <div class="col-span-2 text-sm text-gray-800">
             <div class="grid grid-cols-4">
@@ -175,7 +175,6 @@
     </div>
 
     <footer class="text-xs text-gray-600 text-center">
-      <p>Elaborada por: {{ invoice.seller_name }}</p>
       <p class="font-bold">{{ config.name }}</p>
     </footer>
   </div>

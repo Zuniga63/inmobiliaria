@@ -1,8 +1,8 @@
 <template>
-  <div class="px-2 lg:max-w-3xl lg:mx-auto mb-4" v-for="n in 2" :key="n">
-    <header class="flex flex-col sm:flex-row items-center px-2 pt-6 pb-3 mb-3 border-b-2 border-gray-800">
+  <div class="px-2 mb-4" v-for="n in 2" :key="n">
+    <header class="flex items-center px-2 pt-6 pb-3 mb-3 border-b-2 border-gray-800">
       <!-- Logo -->
-      <div class="w-9/12 sm:w-16 flex-grow-0 mx-auto mb-4">
+      <div class="w-16 flex-grow-0 mx-auto mb-4">
         <img :src="config.logo" :alt="config.name" class="block object-contain w-full h-full" />
       </div>
 
@@ -204,8 +204,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.invoice);
-    //print();
+    print();
   },
 };
 </script>
